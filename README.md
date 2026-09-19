@@ -73,6 +73,10 @@ Then in the browser tab that opens:
 | Embeddings   | Hugging Face Inference API (`all-MiniLM-L6-v2`, swappable) |
 | Vector store | FAISS                                                 |
 | LLM          | Groq (`openai/gpt-oss-120b`)                          |
-<img width="3191" height="1835" alt="Screenshot 2026-09-19 205305" src="https://github.com/user-attachments/assets/7dbb48a7-b865-4b5f-89d4-f0bae8e48bf1" />
-<img width="3186" height="1821" alt="Screenshot 2026-09-19 205316" src="https://github.com/user-attachments/assets/b868b264-fa39-4665-9299-9cba0e15f859" />
+
+<img width="3196" height="1922" alt="Screenshot 2026-09-19 212517" src="https://github.com/user-attachments/assets/ac706287-e5ca-4e53-a00e-45ce75dd05a7" />
+<img width="3195" height="1848" alt="image" src="https://github.com/user-attachments/assets/0c6aab12-2414-4b8f-867a-b72efffce062" />
+<img width="3199" height="1536" alt="image" src="https://github.com/user-attachments/assets/4ac6a4dd-0701-41ef-9924-461152ed8c27" />
+
+
 
