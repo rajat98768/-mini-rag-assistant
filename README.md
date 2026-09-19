@@ -1,3 +1,5 @@
+<img width="3186" height="1821" alt="Screenshot 2026-09-19 205316" src="https://github.com/user-attachments/assets/b868b264-fa39-4665-9299-9cba0e15f859" />
+<img width="3191" height="1835" alt="Screenshot 2026-09-19 205305" src="https://github.com/user-attachments/assets/7dbb48a7-b865-4b5f-89d4-f0bae8e48bf1" />
 # Mini AI Knowledge Assistant (RAG)
 
 A simple Retrieval-Augmented Generation app: upload documents, ask questions,
