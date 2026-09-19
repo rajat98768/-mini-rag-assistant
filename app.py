@@ -40,21 +40,45 @@ st.caption("Upload documents, ask questions, get answers grounded in your conten
 # --------------------------------------------------------------------------
 # Sidebar: settings
 # --------------------------------------------------------------------------
+def get_secret(key):
+    """Check st.secrets first (for Streamlit Cloud), then fall back to env vars (.env locally)."""
+    try:
+        return st.secrets.get(key, os.environ.get(key, ""))
+    except Exception:
+        return os.environ.get(key, "")
+
+
+def api_key_field(label, secret_key, help_url):
+    """
+    If a key is already configured (via st.secrets or .env), don't show it in
+    a visible field — just confirm it's loaded, with an optional override.
+    Otherwise, show a normal password input.
+    """
+    preset = get_secret(secret_key)
+    if preset:
+        st.success(f"✅ {label} loaded", icon="🔑")
+        with st.expander("Use a different key"):
+            override = st.text_input(
+                f"New {label}",
+                type="password",
+                key=f"{secret_key}_override",
+                help=f"Leave blank to keep using the configured key. Get one at {help_url}",
+            )
+        return override or preset
+    else:
+        return st.text_input(
+            label,
+            type="password",
+            help=f"Get a free key at {help_url}",
+        )
+
+
 with st.sidebar:
     st.header("⚙️ Settings")
 
-    groq_api_key = st.text_input(
-        "Groq API Key",
-        type="password",
-        value=os.environ.get("GROQ_API_KEY", ""),
-        help="Get a free key at https://console.groq.com/keys",
-    )
-
-    hf_api_token = st.text_input(
-        "Hugging Face API Token",
-        type="password",
-        value=os.environ.get("HUGGINGFACEHUB_API_TOKEN", ""),
-        help="Used for embeddings via the HF Inference API. Get a free token at https://huggingface.co/settings/tokens",
+    groq_api_key = api_key_field("Groq API Key", "GROQ_API_KEY", "https://console.groq.com/keys")
+    hf_api_token = api_key_field(
+        "Hugging Face API Token", "HUGGINGFACEHUB_API_TOKEN", "https://huggingface.co/settings/tokens"
     )
 
     embedding_model = st.selectbox(
